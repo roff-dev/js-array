@@ -1,0 +1,14 @@
+.navbar {
+    background-color: darken($color: #e3e3e3, $amount: 30);
+    height: 50px;
+    display: flex; 
+    align-items: center; 
+    .logo {
+        text-align: center;
+        display: block;
+        width: 20%;
+        margin: 0 auto;
+        font-size: 2em;
+        font-weight: 700;
+    }
+}
