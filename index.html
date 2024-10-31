@@ -16,13 +16,13 @@
 <main>
     <div class="wrapper">
         <div class="image-box">
-            
+            <img id="current-image" src="" alt="Random Image">
         </div>
-        <div class="image-nav">
+        <div class="image-nav" id="image-box">
             <input type="text" placeholder="Email">
             <div class="image-nav-buttons">
-                <button class="btn-back">&#9664;</button>
-                <button class="btn-next">&#9654;</button>
+                <button class="btn-back" onclick="showPreviousImage()">&#9664;</button> 
+                <button class="btn-next" onclick="showNextImage()">&#9654;</button>
             </div>
         </div>
     </div>
