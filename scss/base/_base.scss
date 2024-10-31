@@ -5,4 +5,11 @@ body {
     background-color: #e3e3e3;
     margin: 0;
     font-family: "Kanit", serif;
+    width: 100%;
+}
+.wrapper {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

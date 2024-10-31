@@ -3,6 +3,14 @@ body {
   background-color: #e3e3e3;
   margin: 0;
   font-family: "Kanit", serif;
+  width: 100%;
+}
+
+.wrapper {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .navbar {
@@ -18,6 +26,27 @@ body {
   margin: 0 auto;
   font-size: 2em;
   font-weight: 700;
+}
+
+.image-box {
+  border: 2px dashed black;
+  height: 394px;
+  width: 700px;
+  margin-bottom: 30px;
+}
+
+.image-nav {
+  border: 2px dashed black;
+  height: 65px;
+  width: 700px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.image-nav input {
+  height: 50%;
+  width: 250px;
 }
 
 /*# sourceMappingURL=styles.css.map */
