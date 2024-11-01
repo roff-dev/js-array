@@ -22,12 +22,14 @@ function showImage(index) {
 function showNextImage() {
     currentIndex = (currentIndex + 1) % totalImages; // Loop back to the first image
     showImage(currentIndex);
+    
 }
 
 // Function to show the previous image
 function showPreviousImage() {
     currentIndex = (currentIndex - 1 + totalImages) % totalImages; // Loop to the last image
     showImage(currentIndex);
+    
 }
 
 // Initial display
@@ -36,12 +38,11 @@ showImage(currentIndex);
 
 // load dom
 document.addEventListener("DOMContentLoaded", function() {
-    const form = document.querySelector('form');
+    const form = document.getElementById('image-nav-buttons');
     const emailInput = document.getElementById('email');
 
     // email regex
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    
 
     form.addEventListener('submit', function(event) {
         let isValid = true;
@@ -61,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (!isValid) {
             event.preventDefault();
         } else {
-            alert("Contact Form Sent! Response will arrive shortly.");
+            alert("Image attached to email");
         }
     });
 });
