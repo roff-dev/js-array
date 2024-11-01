@@ -15,16 +15,18 @@
 
 <main>
     <div class="wrapper">
-        <div class="image-box">
-            <img id="current-image" src="" alt="Random Image">
-        </div>
-        <div class="image-nav" id="image-box">
-            <input type="text" placeholder="Email">
-            <div class="image-nav-buttons">
-                <button class="btn-back" onclick="showPreviousImage()">&#9664;</button> 
-                <button class="btn-next" onclick="showNextImage()">&#9654;</button>
+        <form action="">
+            <div class="image-box">
+                <img id="current-image" src="" alt="Random Image">
             </div>
-        </div>
+            <div class="image-nav" id="image-box">
+                <input type="email" id="email" name="email" placeholder="Email" required><button type="submit">Send</button>
+                <div class="image-nav-buttons">
+                    <button class="btn-back" onclick="showPreviousImage()">&#9664;</button> 
+                    <button class="btn-next" onclick="showNextImage()">&#9654;</button>
+                </div>
+            </div>
+        </form>
     </div>
 
 </main>

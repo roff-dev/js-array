@@ -32,3 +32,36 @@ function showPreviousImage() {
 
 // Initial display
 showImage(currentIndex);
+
+
+// load dom
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.querySelector('form');
+    const emailInput = document.getElementById('email');
+
+    // email regex
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    
+
+    form.addEventListener('submit', function(event) {
+        let isValid = true;
+        
+        // clear error messages
+        clearErrorMessages();
+
+        if (emailInput.value.trim() === "") {
+            showError(emailInput, "Field required, Do not leave blank.");
+            isValid = false;
+        } else if (!emailPattern.test(emailInput.value)) {
+            showError(emailInput, "Please enter a valid email.");
+            isValid = false;
+        }
+
+        // prevent if invalid
+        if (!isValid) {
+            event.preventDefault();
+        } else {
+            alert("Contact Form Sent! Response will arrive shortly.");
+        }
+    });
+});
