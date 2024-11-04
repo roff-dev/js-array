@@ -1,53 +1,93 @@
-const totalImages = 50; // Total number of images to fetch
-let currentIndex = 0; // Current image index
-const imageElement = document.getElementById('current-image');
-
-// Function to fetch images
-function fetchImages() {
-    const images = [];
-    for (let i = 0; i < totalImages; i++) {
-        images.push(`https://picsum.photos/700/394?random=${i}`);
-    }
-    return images;
-}
-
-const images = fetchImages(); // Fetch images once
-
-// Function to show the current image
-function showImage(index) {
-    imageElement.src = images[index];
-}
-
-// Function to show the next image
-function showNextImage() {
-    currentIndex = (currentIndex + 1) % totalImages; // Loop back to the first image
-    showImage(currentIndex);
-    
-}
-
-// Function to show the previous image
-function showPreviousImage() {
-    currentIndex = (currentIndex - 1 + totalImages) % totalImages; // Loop to the last image
-    showImage(currentIndex);
-    
-}
-
-// Initial display
-showImage(currentIndex);
-
-
-// load dom
 document.addEventListener("DOMContentLoaded", function() {
-    const form = document.getElementById('image-nav-buttons');
-    const emailInput = document.getElementById('email');
+    //CONST AND VARIABLES
+    const totalImages = 50;
+    let currentIndex = 0;
+    const emailImages = {};
 
-    // email regex
+    //DOM ELEMENTS
+    const imageElement = document.getElementById('current-image');
+    const form = document.getElementById('email-form');  // Updated form ID here
+    const emailInput = document.getElementById('email');
+    const viewImagesButton = document.getElementById('view-images-button');
+    const retrieveEmailInput = document.getElementById('retrieve-email');
+    const myImagesContainer = document.getElementById('my-images-container');
+
+    //regex
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
+    // Fetch and store in array
+    const images = fetchImages();
+
+    //first image
+    showImage(currentIndex);
+
+    //fetch
+    function fetchImages() {
+        const imagesArray = [];
+        for (let i = 0; i < totalImages; i++) {
+            imagesArray.push(`https://picsum.photos/700/394?random=${i}`);
+        }
+        return imagesArray;
+    }
+
+    //show the current image
+    function showImage(index) {
+        imageElement.src = images[index];
+    }
+
+    // show next image
+    function showNextImage() {
+        currentIndex = (currentIndex + 1) % totalImages;
+        showImage(currentIndex);
+    }
+
+    //show previous image
+    function showPreviousImage() {
+        currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+        showImage(currentIndex);
+    }
+
+    //attach an image to email
+    function attachImageToEmail(email, imageUrl) {
+        if (!emailImages[email]) {
+            emailImages[email] = [];
+        }
+        emailImages[email].push(imageUrl);
+        console.log(`Image added for ${email}: ${imageUrl}`);
+        console.log(emailImages);
+    }
+
+    //retrieve images
+    function getImagesByEmail(email) {
+        return emailImages[email] || [];
+    }
+
+    //display images for given email
+    function displayImagesByEmail(email) {
+        myImagesContainer.innerHTML = '';
+        const images = getImagesByEmail(email);
+        console.log(`Images for ${email}:`, images);
+
+        if (images.length === 0) {
+            myImagesContainer.innerHTML = '<p>No images found for this email.</p>';
+            return;
+        }
+
+        images.forEach(imageUrl => {
+            const imgElement = document.createElement('img');
+            imgElement.src = imageUrl;
+            imgElement.alt = 'User linked image';
+            imgElement.style.width = '150px';
+            imgElement.style.margin = '10px';
+            myImagesContainer.appendChild(imgElement);
+        });
+    }
+
+    //form submission
     form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent page reload
         let isValid = true;
-        
-        // clear error messages
+
         clearErrorMessages();
 
         if (emailInput.value.trim() === "") {
@@ -58,11 +98,27 @@ document.addEventListener("DOMContentLoaded", function() {
             isValid = false;
         }
 
-        // prevent if invalid
-        if (!isValid) {
-            event.preventDefault();
-        } else {
+        if (isValid) {
+            const email = emailInput.value.trim();
+            attachImageToEmail(email, images[currentIndex]);
             alert("Image attached to email");
+            emailInput.value = '';
         }
     });
+
+    //view images button
+    viewImagesButton.addEventListener('click', function() {
+        const email = retrieveEmailInput.value.trim();
+
+        if (email === '') {
+            alert('Please enter an email to view images.');
+            return;
+        }
+
+        displayImagesByEmail(email);
+    });
+
+    // Attach functions to global scope for button navigation
+    window.showNextImage = showNextImage;
+    window.showPreviousImage = showPreviousImage;
 });
