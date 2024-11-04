@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const imgElement = document.createElement('img');
             imgElement.src = imageUrl;
             imgElement.alt = 'User linked image';
-            imgElement.style.width = '150px';
+            imgElement.style.width = '500px';
             imgElement.style.margin = '10px';
             myImagesContainer.appendChild(imgElement);
         });
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function() {
         event.preventDefault(); // Prevent page reload
         let isValid = true;
 
-        clearErrorMessages();
+        
 
         if (emailInput.value.trim() === "") {
             showError(emailInput, "Field required, Do not leave blank.");

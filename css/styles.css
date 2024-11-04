@@ -49,7 +49,6 @@ nav ul li a:hover {
   color: rgba(0, 35, 122, 0.7);
 }
 
-/* Main content wrapper */
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -61,6 +60,10 @@ nav ul li a:hover {
   max-width: 500px;
   width: 100%;
   margin: 100px auto 200px;
+}
+
+.container {
+  height: 100vh;
 }
 
 .image-box {
@@ -154,6 +157,10 @@ button[type=submit]:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#my-images {
+  text-align: center;
 }
 
 /*# sourceMappingURL=styles.css.map */
