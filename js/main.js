@@ -53,7 +53,10 @@ document.addEventListener("DOMContentLoaded", function() {
             emailImages[email] = [];
         }
         emailImages[email].push(imageUrl);
+        currentIndex = (currentIndex + 1) % totalImages;
+        showImage(currentIndex);
         console.log(`Image added for ${email}: ${imageUrl}`);
+        console.log(emailImages);
     }
 
     //retrieve images
@@ -87,8 +90,6 @@ document.addEventListener("DOMContentLoaded", function() {
         event.preventDefault(); // Prevent page reload
         let isValid = true;
 
-        
-
         if (emailInput.value.trim() === "") {
             showError(emailInput, "Field required, Do not leave blank.");
             isValid = false;
@@ -100,7 +101,6 @@ document.addEventListener("DOMContentLoaded", function() {
         if (isValid) {
             const email = emailInput.value.trim();
             attachImageToEmail(email, images[currentIndex]);
-            alert("Image attached to email");
             emailInput.value = '';
         }
     });

@@ -1,68 +1,53 @@
 
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, rgba(255, 255, 255, 0) 100%);
-    border-radius: 8px;
-    box-shadow: 0px 14px 12px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    width: 100%;
-    margin: 100px auto 200px;
-  }
-  .container {
-    height: 100vh;
-  }
-  .image-box {
+.image-box {
     width: 100%;
     margin-bottom: 1.5rem;
-    
-  }
-  
-  #current-image {
+}
+
+#current-image {
     width: 100%;
     height: auto;
     max-height: 400px;
     border-radius: 8px;
     object-fit: cover;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .image-nav {
+}
+
+.image-nav {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-  }
-  
-  #email-form {
+}
+
+#email-form {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     margin-bottom: 1rem;
-  }
-  
-  #email-form div {
+}
+
+#email-form div {
     display: flex;
     width: 100%;
-  }
-  
-  input[type="email"] {
+}
+
+input[type="email"] {
     flex: 1;
     padding: 0.75rem;
     font-size: 1rem;
-    border: 1px solid #ddd;
+    border: 3px solid #ddd;
     border-radius: 4px 0 0 4px;
     outline: none;
-  }
-  
-  input[type="email"]:focus {
+    background-color: transparent;
+}
+
+input[type="email"]:focus {
     border-color: #0077cc;
-  }
-  
-  button[type="submit"] {
+}
+
+button[type="submit"] {
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
     background-color: #0077cc;
@@ -70,21 +55,21 @@
     border: none;
     border-radius: 0 4px 4px 0;
     cursor: pointer;
-  }
-  
-  button[type="submit"]:hover {
+}
+
+button[type="submit"]:hover {
     background-color: #005fa3;
-  }
-  
+}
+
   /* Navigation buttons */
-  .nav-buttons {
+.nav-buttons {
     display: flex;
     justify-content: center;
     gap: 1rem;
     margin-top: 1rem;
-  }
-  
-  .nav-buttons button {
+}
+
+.nav-buttons button {
     font-size: 1.5rem;
     padding: 0.5rem 1rem;
     background-color: #0077cc;
@@ -93,14 +78,14 @@
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
-  }
-  
-  .nav-buttons button:hover {
-    background-color: #005fa3;
-  }
-  
-  .nav-buttons .btn-back,
-  .nav-buttons .btn-next {
+}
+
+.nav-buttons button:hover {
+  background-color: #005fa3;
+}
+
+.nav-buttons .btn-back,
+.nav-buttons .btn-next {
     width: 50px;
     height: 50px;
     display: flex;
