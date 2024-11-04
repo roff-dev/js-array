@@ -54,7 +54,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         emailImages[email].push(imageUrl);
         console.log(`Image added for ${email}: ${imageUrl}`);
-        console.log(emailImages);
     }
 
     //retrieve images
