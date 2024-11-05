@@ -6,7 +6,6 @@
 
 #current-image {
     width: 100%;
-    height: auto;
     max-height: 400px;
     border-radius: 8px;
     object-fit: cover;
@@ -44,13 +43,14 @@ input[type="email"] {
 }
 
 input[type="email"]:focus {
-    border-color: #0077cc;
+    border-color: $main-color;
 }
 
 button[type="submit"] {
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
-    background-color: #0077cc;
+    font-weight: 600;
+    background-color: $main-color;
     color: #fff;
     border: none;
     border-radius: 0 4px 4px 0;
@@ -58,7 +58,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #005fa3;
+    background-color: $accent-color;
 }
 
   /* Navigation buttons */
@@ -72,7 +72,7 @@ button[type="submit"]:hover {
 .nav-buttons button {
     font-size: 1.5rem;
     padding: 0.5rem 1rem;
-    background-color: #0077cc;
+    background-color: $main-color;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -81,12 +81,12 @@ button[type="submit"]:hover {
 }
 
 .nav-buttons button:hover {
-  background-color: #005fa3;
+  background-color: $accent-color;
 }
 
 .nav-buttons .btn-back,
 .nav-buttons .btn-next {
-    width: 50px;
+    width: 70px;
     height: 50px;
     display: flex;
     align-items: center;
@@ -95,4 +95,7 @@ button[type="submit"]:hover {
 
 #my-images {
   text-align: center;
+  h1 {
+    color: $main-color;
+  }
 }

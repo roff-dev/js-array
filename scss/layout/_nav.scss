@@ -1,23 +1,8 @@
-// .navbar {
-//     background-color: darken($color: #e3e3e3, $amount: 30);
-//     height: 50px;
-//     display: flex; 
-//     align-items: center; 
-//     .logo {
-//         text-align: center;
-//         display: block;
-//         width: 20%;
-//         margin: 0 auto;
-//         font-size: 2em;
-//         font-weight: 700;
-//     }
-// }
 
 nav {
     max-width: 960px;
     mask-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 25%, #ffffff 75%, rgba(255, 255, 255, 0) 100%);
     margin: 0 auto;
-    
 }
   
 nav ul {

@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function fetchImages() {
         const imagesArray = [];
         for (let i = 0; i < totalImages; i++) {
-            imagesArray.push(`https://picsum.photos/700/394?random=${i}`);
+            imagesArray.push(`https://picsum.photos/636/358?random=${i}`);
         }
         return imagesArray;
     }
@@ -79,8 +79,9 @@ document.addEventListener("DOMContentLoaded", function() {
             const imgElement = document.createElement('img');
             imgElement.src = imageUrl;
             imgElement.alt = 'User linked image';
-            imgElement.style.width = '500px';
+            imgElement.style.width = '636px';
             imgElement.style.margin = '10px';
+            imgElement.style.borderRadius = '8px';
             myImagesContainer.appendChild(imgElement);
         });
     }
