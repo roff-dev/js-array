@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function() {
-    //CONST AND VARIABLES
+    // CONST AND VARIABLES
     const totalImages = 50;
     let currentIndex = 0;
     const emailImages = {};
 
-    //DOM ELEMENTS
+    // DOM ELEMENTS
     const imageElement = document.getElementById('current-image');
     const form = document.getElementById('email-form');  // Updated form ID here
     const emailInput = document.getElementById('email');
@@ -12,16 +12,16 @@ document.addEventListener("DOMContentLoaded", function() {
     const retrieveEmailInput = document.getElementById('retrieve-email');
     const myImagesContainer = document.getElementById('my-images-container');
 
-    //regex
+    // regex
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
     // Fetch and store in array
     const images = fetchImages();
 
-    //first image
+    // first image
     showImage(currentIndex);
 
-    //fetch
+    // fetch
     function fetchImages() {
         const imagesArray = [];
         for (let i = 0; i < totalImages; i++) {
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
         return imagesArray;
     }
 
-    //show the current image
+    // show the current image
     function showImage(index) {
         imageElement.src = images[index];
     }
@@ -41,13 +41,13 @@ document.addEventListener("DOMContentLoaded", function() {
         showImage(currentIndex);
     }
 
-    //show previous image
+    // show previous image
     function showPreviousImage() {
         currentIndex = (currentIndex - 1 + totalImages) % totalImages;
         showImage(currentIndex);
     }
 
-    //attach an image to email
+    // attach an image to email
     function attachImageToEmail(email, imageUrl) {
         if (!emailImages[email]) {
             emailImages[email] = [];
@@ -59,12 +59,12 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log(emailImages);
     }
 
-    //retrieve images
+    // retrieve images
     function getImagesByEmail(email) {
         return emailImages[email] || [];
     }
 
-    //display images for given email
+    // display images for given email
     function displayImagesByEmail(email) {
         myImagesContainer.innerHTML = '';
         const images = getImagesByEmail(email);
@@ -86,7 +86,17 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    //form submission
+    // Function to show toast notification
+    function showToast(message) {
+        const toast = document.getElementById('toast');
+        toast.textContent = message;
+        toast.style.display = 'block';
+        setTimeout(() => {
+            toast.style.display = 'none';
+        }, 3000); // Toast will disappear after 3 seconds
+    }
+
+    // form submission
     form.addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent page reload
         let isValid = true;
@@ -102,11 +112,12 @@ document.addEventListener("DOMContentLoaded", function() {
         if (isValid) {
             const email = emailInput.value.trim();
             attachImageToEmail(email, images[currentIndex]);
-            emailInput.value = '';
+            // emailInput.value = ''; // Remove or comment out this line to keep the email
+            showToast('Image attached successfully!'); // Show toast message here
         }
     });
 
-    //view images button
+    // view images button
     viewImagesButton.addEventListener('click', function() {
         const email = retrieveEmailInput.value.trim();
 
