@@ -6,7 +6,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // DOM ELEMENTS
     const imageElement = document.getElementById('current-image');
-    const form = document.getElementById('email-form');  // Updated form ID here
+    const emailForm = document.getElementById('email-form'); 
+    const imageForm = document.getElementById('image-form'); 
     const emailInput = document.getElementById('email');
     const viewImagesButton = document.getElementById('view-images-button');
     const retrieveEmailInput = document.getElementById('retrieve-email');
@@ -15,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // regex
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-    // Fetch and store in array
+    //store in array
     const images = fetchImages();
 
     // first image
@@ -86,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Function to show toast notification
+    // successful attatch notif
     function showToast(message) {
         const toast = document.getElementById('toast');
         toast.textContent = message;
@@ -97,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // form submission
-    form.addEventListener('submit', function(event) {
+    emailForm.addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent page reload
         let isValid = true;
 
@@ -112,24 +113,29 @@ document.addEventListener("DOMContentLoaded", function() {
         if (isValid) {
             const email = emailInput.value.trim();
             attachImageToEmail(email, images[currentIndex]);
-            // emailInput.value = ''; // Remove or comment out this line to keep the email
-            showToast('Image attached successfully!'); // Show toast message here
+            showToast('Image attached! Click "My Images" to view'); 
         }
     });
 
     // view images button
-    viewImagesButton.addEventListener('click', function() {
-        const email = retrieveEmailInput.value.trim();
+    imageForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        let isValid = true;
 
-        if (email === '') {
-            alert('Please enter an email to view images.');
-            return;
+        if (retrieveEmailInput.value.trim() === "") {
+            myImagesContainer.innerHTML = '<p>Do not leave blank.</p>';
+            isValid = false;
+        } else if(!emailPattern.test(retrieveEmailInput.value)) {
+            showError(retrieveEmailInput, "Please enter a valid email.");
+            isValid = false;
         }
-
-        displayImagesByEmail(email);
+        if (isValid) {
+            const email = retrieveEmailInput.value.trim();
+            displayImagesByEmail(email);
+        }
     });
 
-    // Attach functions to global scope for button navigation
+    // button navigation
     window.showNextImage = showNextImage;
     window.showPreviousImage = showPreviousImage;
 });
