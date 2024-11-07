@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const imgElement = document.createElement('img');
             imgElement.src = imageUrl;
             imgElement.alt = 'User linked image';
-            imgElement.style.width = '636px';
+            imgElement.style.width = '70%';
             imgElement.style.margin = '10px';
             imgElement.style.borderRadius = '8px';
             myImagesContainer.appendChild(imgElement);
@@ -94,12 +94,12 @@ document.addEventListener("DOMContentLoaded", function() {
         toast.style.display = 'block';
         setTimeout(() => {
             toast.style.display = 'none';
-        }, 3000); // Toast will disappear after 3 seconds
+        }, 3000); 
     }
 
     // form submission
     emailForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent page reload
+        event.preventDefault(); 
         let isValid = true;
 
         if (emailInput.value.trim() === "") {
