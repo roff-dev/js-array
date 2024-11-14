@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     //grid styling for container
     myImagesContainer.style.display = 'grid';
-    myImagesContainer.style.gridTemplateColumns = 'repeat(auto-fill, minmax(250px, 1fr))';
+    myImagesContainer.style.gridTemplateColumns = 'repeat(auto-fill, minmax(400px, 1fr))';
     myImagesContainer.style.gap = '1rem';
     myImagesContainer.style.padding = '1rem';
 

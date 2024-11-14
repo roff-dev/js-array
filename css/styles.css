@@ -193,21 +193,12 @@ button[type=submit]:hover {
   background-image: url("../img/triangle-up.svg");
 }
 
-#my-images-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1rem;
-}
-
-#my-images-container img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  object-fit: cover;
+#my-images-container img:hover {
+  border: red;
 }
 
 #my-images {
-  margin: 0 300px;
+  margin: 0 200px;
 }
 
 /*# sourceMappingURL=styles.css.map */
