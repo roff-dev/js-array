@@ -165,7 +165,7 @@ button[type=submit]:hover {
   margin: 20px 0;
 }
 
-.styled-dropdown {
+.dropdown {
   width: 100%;
   max-width: 300px;
   padding: 12px;
@@ -181,11 +181,11 @@ button[type=submit]:hover {
   background-size: 12px auto;
 }
 
-.styled-dropdown:hover {
+.dropdown:hover {
   border-color: #999;
 }
 
-.styled-dropdown:focus {
+.dropdown:focus {
   border-color: #007bff;
   outline: none;
   box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);

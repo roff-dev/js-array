@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         attachImageToEmail(email, images[currentIndex]);
-        showToast('Image attached successfully!');
+        showToast('Image attached! Click My Images to see it');
     });
 
     //email dropdown handler
