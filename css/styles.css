@@ -204,11 +204,11 @@ button[type=submit]:hover {
 }
 
 .dropdown:hover {
-  border-color: #999;
+  border-color: rgba(0, 35, 122, 0.5);
 }
 
 .dropdown:focus {
-  border-color: #007bff;
+  border-color: rgba(0, 35, 122, 0.7);
   outline: none;
   box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
   background-image: url("../img/triangle-up.svg");

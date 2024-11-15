@@ -21,14 +21,14 @@
 }
 
 .dropdown:hover {
-    border-color: #999;
+    border-color: $main-color;
 }
 
 .dropdown:focus {
-    border-color: #007bff;
+    border-color: $accent-color;
     outline: none;
     box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
-    background-image: url("../img/triangle-up.svg");
+    background-image: url("../img/triangle-up.svg"); 
 }
 
 #my-images {
