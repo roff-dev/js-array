@@ -26,3 +26,22 @@ body {
 .container {
     height: 100vh;
 }
+.back-to-top {
+    color: $main-color;
+    display: flex;
+    flex-direction: column;
+    a {
+        text-decoration: none;
+        color: $main-color;
+        font-size: 1.25em;
+    }
+    span {
+        font-size: 1.1em;
+    }
+}
+.back-to-top:hover {
+    color: $accent-color;
+    a {
+        color: $accent-color; 
+    }
+}

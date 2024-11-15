@@ -28,6 +28,27 @@ body {
   height: 100vh;
 }
 
+.back-to-top {
+  color: rgba(0, 35, 122, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+.back-to-top a {
+  text-decoration: none;
+  color: rgba(0, 35, 122, 0.5);
+  font-size: 1.25em;
+}
+.back-to-top span {
+  font-size: 1.1em;
+}
+
+.back-to-top:hover {
+  color: rgba(0, 35, 122, 0.7);
+}
+.back-to-top:hover a {
+  color: rgba(0, 35, 122, 0.7);
+}
+
 nav {
   max-width: 960px;
   mask-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 25%, #ffffff 75%, rgba(255, 255, 255, 0) 100%);
@@ -191,10 +212,6 @@ button[type=submit]:hover {
   outline: none;
   box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
   background-image: url("../img/triangle-up.svg");
-}
-
-#my-images-container img:hover {
-  border: red;
 }
 
 #my-images {
