@@ -33,4 +33,7 @@
 
 #my-images {
     margin: 0 200px;
+    @media (max-width:800px) {
+        margin: 0;
+    }
 }

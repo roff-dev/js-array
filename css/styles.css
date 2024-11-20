@@ -35,8 +35,10 @@ body {
 }
 .back-to-top a {
   text-decoration: none;
+  text-align: center;
   color: rgba(0, 35, 122, 0.5);
   font-size: 1.25em;
+  text-wrap: nowrap;
 }
 .back-to-top span {
   font-size: 1.1em;
@@ -47,6 +49,28 @@ body {
 }
 .back-to-top:hover a {
   color: rgba(0, 35, 122, 0.7);
+}
+
+#my-images-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+@media (max-width: 700px) {
+  #my-images-container {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  }
+}
+@media (max-width: 400px) {
+  #my-images-container {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+@media (max-width: 200px) {
+  #my-images-container {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
 }
 
 nav {
@@ -216,6 +240,11 @@ button[type=submit]:hover {
 
 #my-images {
   margin: 0 200px;
+}
+@media (max-width: 800px) {
+  #my-images {
+    margin: 0;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

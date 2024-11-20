@@ -12,12 +12,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const myImagesContainer = document.getElementById('my-images-container');
     const emailDropdown = document.getElementById('email-dropdown');
 
-    //grid styling for container
-    myImagesContainer.style.display = 'grid';
-    myImagesContainer.style.gridTemplateColumns = 'repeat(auto-fill, minmax(400px, 1fr))';
-    myImagesContainer.style.gap = '1rem';
-    myImagesContainer.style.padding = '1rem';
-
     //email regex
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     
