@@ -114,6 +114,11 @@ document.addEventListener("DOMContentLoaded", function() {
         if (!emailImages[email]) {
             emailImages[email] = [];
         }
+           // Check if the image is already attached to the email
+        if (emailImages[email].includes(imageUrl)) {
+            showToast('This image is already attached to the email.', true);
+            return;
+        }
         emailImages[email].push(imageUrl);
         currentEmail = email;
     
@@ -121,8 +126,9 @@ document.addEventListener("DOMContentLoaded", function() {
         displayImagesByEmail(email);
         
         //next image
-        currentIndex = (currentIndex + 1) % totalImages;
-        showImage(currentIndex);
+        //currentIndex = (currentIndex + 1) % totalImages;
+        //showImage(currentIndex);
+        showToast('Image attached! Click My Images to see it');
     }
 
     // display images for given email
@@ -188,7 +194,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         attachImageToEmail(email, images[currentIndex]);
-        showToast('Image attached! Click My Images to see it');
+        
     });
 
     //email dropdown handler
