@@ -135,39 +135,30 @@ document.addEventListener("DOMContentLoaded", function() {
     function displayImagesByEmail(email) {
         const images = emailImages[email] || [];
         
+        // Clear existing images first
+        myImagesContainer.innerHTML = '';
+        
         if (images.length === 0) {
             myImagesContainer.innerHTML = '<p>No images found for this email.</p>';
             return;
         }
-
-        //update images in container
-        images.forEach((imageUrl, index) => {
-            let imgElement = document.getElementById(`img-${index}`);
+    
+        // Create new image elements for each image
+        images.forEach((imageUrl) => {
+            const imgContainer = document.createElement('div');
+            imgContainer.style.position = 'relative';
             
-            if (!imgElement) {
-                const imgContainer = document.createElement('div');
-                imgContainer.style.position = 'relative';
-                
-                imgElement = document.createElement('img');
-                imgElement.id = `img-${index}`;
-                imgElement.alt = 'User linked image';
-                imgElement.style.width = '100%';
-                imgElement.style.height = 'auto';
-                imgElement.style.borderRadius = '8px';
-                imgElement.style.objectFit = 'cover';
-                
-                imgContainer.appendChild(imgElement);
-                myImagesContainer.appendChild(imgContainer);
-            }
-            
+            const imgElement = document.createElement('img');
             imgElement.src = imageUrl;
+            imgElement.alt = 'User linked image';
+            imgElement.style.width = '100%';
+            imgElement.style.height = 'auto';
+            imgElement.style.borderRadius = '8px';
+            imgElement.style.objectFit = 'cover';
+            
+            imgContainer.appendChild(imgElement);
+            myImagesContainer.appendChild(imgContainer);
         });
-
-        //remove extra images
-        const existingImages = myImagesContainer.getElementsByTagName('img');
-        while (existingImages.length > images.length) {
-            existingImages[existingImages.length - 1].parentElement.remove();
-        }
     }
 
     // successful attach notif
