@@ -29,9 +29,9 @@ body {
 }
 .back-to-top {
     color: $main-color;
-    display: flex;
-    flex-direction: column;
+    display: inline-block;
     
+    text-align: center;
     a {
         text-decoration: none;
         text-align: center;
@@ -41,7 +41,7 @@ body {
     }
     span {
         font-size: 1.1em;
-        
+        display: block;
     }
 }
 .back-to-top:hover {

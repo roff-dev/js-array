@@ -102,3 +102,8 @@ button[type="submit"]:hover {
     color: $main-color;
   }
 }
+#my-images-container img:hover {
+    outline: 2px solid $main-color;
+    
+    border-radius: 8px; 
+}

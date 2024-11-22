@@ -37,14 +37,6 @@ document.addEventListener("DOMContentLoaded", function() {
         const [localPart, domain] = email.split('@');
         const tld = domain.split('.').pop().toLowerCase();
 
-        if (emailValidationRules.bannedDomains.includes(domain.toLowerCase())) {
-            return "Please use a valid email domain";
-        }
-
-        if (!emailValidationRules.topLevelDomains.includes(tld)) {
-            return "Please use a valid top-level domain";
-        }
-
         return null; //valid
     }
 
@@ -125,9 +117,6 @@ document.addEventListener("DOMContentLoaded", function() {
         updateEmailDropdown(email);
         displayImagesByEmail(email);
         
-        //next image
-        //currentIndex = (currentIndex + 1) % totalImages;
-        //showImage(currentIndex);
         showToast('Image attached! Click My Images to see it');
     }
 
@@ -137,11 +126,6 @@ document.addEventListener("DOMContentLoaded", function() {
         
         // Clear existing images first
         myImagesContainer.innerHTML = '';
-        
-        if (images.length === 0) {
-            myImagesContainer.innerHTML = '<p>No images found for this email.</p>';
-            return;
-        }
     
         // Create new image elements for each image
         images.forEach((imageUrl) => {
@@ -156,7 +140,28 @@ document.addEventListener("DOMContentLoaded", function() {
             imgElement.style.borderRadius = '8px';
             imgElement.style.objectFit = 'cover';
             
+            //x for remove
+            const removeButton = document.createElement('button');
+            removeButton.textContent = 'X';
+            removeButton.style.position = 'absolute';
+            removeButton.style.top = '5px';
+            removeButton.style.right = '5px';
+            removeButton.style.color = 'black';
+            removeButton.style.border = 'none';
+            removeButton.style.borderRadius = '50%';
+            removeButton.style.cursor = 'pointer';
+            
+            // remove event click
+            removeButton.addEventListener('click', () => {
+                const index = emailImages[email].indexOf(imageUrl);
+                if (index > -1) {
+                    emailImages[email].splice(index, 1);
+                    displayImagesByEmail(email); 
+                }
+            });
+
             imgContainer.appendChild(imgElement);
+            imgContainer.appendChild(removeButton);
             myImagesContainer.appendChild(imgContainer);
         });
     }
