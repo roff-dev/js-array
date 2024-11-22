@@ -143,13 +143,7 @@ document.addEventListener("DOMContentLoaded", function() {
             //x for remove
             const removeButton = document.createElement('button');
             removeButton.textContent = 'X';
-            removeButton.style.position = 'absolute';
-            removeButton.style.top = '5px';
-            removeButton.style.right = '5px';
-            removeButton.style.color = 'black';
-            removeButton.style.border = 'none';
-            removeButton.style.borderRadius = '50%';
-            removeButton.style.cursor = 'pointer';
+            
             
             // remove event click
             removeButton.addEventListener('click', () => {

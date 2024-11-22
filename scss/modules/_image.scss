@@ -103,7 +103,22 @@ button[type="submit"]:hover {
   }
 }
 #my-images-container img:hover {
-    outline: 2px solid $main-color;
-    
+    outline: 4px solid $main-color;
     border-radius: 8px; 
+    transition: .2s ease;
+}
+#my-images-container button {
+    
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: black;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &:hover {
+        background-color: red;
+        color: white;
+    }
 }
